@@ -1,0 +1,32 @@
+# PlaceMux Phase 1 - Task 3
+# Central config — change settings here, not in code
+
+data:
+  seed: 42
+  test_size: 0.2
+  val_size: 0.25
+
+features:
+  target: "placed"
+  drop_columns:
+    - "student_id"
+  numeric_features:
+    - "python_score"
+    - "sql_score"
+    - "communication"
+    - "problem_solving"
+
+model:
+  name: "DummyClassifier"
+  strategy: "most_frequent"
+
+evaluation:
+  primary_metric: "f1_score"
+  secondary_metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+
+mlflow:
+  experiment_name: "placemux_phase1_task3"
+  run_name: "baseline_dummy"
